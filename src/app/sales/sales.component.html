@@ -6,6 +6,7 @@
         <h2>{{currentSale.title}}</h2>
         <p>{{currentSale.description}}</p>
         <p>{{currentSale.price}}</p>
+        <p>{{currentSale.category}}</p>
       </li>
     </ul>
   </div>
@@ -52,9 +53,10 @@
     </div>
   </div>
 </div>
+<button (click)="filterSales(category)">Filter</button>
 
 
-<div class="card">
+<div class="card" *ngIf="salesFilter">
   <div class="card-title">
     <h2>Filter Sales</h2>
   </div>
@@ -71,11 +73,12 @@
 
   </div>
 </div>
-<div *ngIf="saleFilter">
+<div *ngIf="salesFilter">
   <ul>
     <li id="saleList" *ngFor="let sale of filteredSales">
     {{sale.title}}
     {{sale.description}}
     ${{sale.price}}</li>
   </ul>
+
 </div>

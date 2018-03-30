@@ -16,7 +16,8 @@ import { SalesComponent } from './sales/sales.component';
   ],
   imports: [
     BrowserModule,
-    routing
+    routing,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

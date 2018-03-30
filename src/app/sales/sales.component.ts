@@ -8,14 +8,14 @@ import { Sale } from '../sale.model';
 })
 export class SalesComponent implements OnInit {
   sales: Sale[] = [
-    new Sale('Used Bike', 'I have had it for 20 years, its old and rusty', 100)
+    new Sale('Used Bike', 'I have had it for 20 years, its old and rusty', 100, "Electronics")
   ];
 
   filteredSales: Sale[] = [];
 
   // currentRoute: string = this.router.url;
   public addingSale: boolean = false;
-  public saleFilter: boolean = false;
+  public salesFilter: boolean = false;
 
   addNewSale() {
     this.addingSale = true;
@@ -26,7 +26,7 @@ export class SalesComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitForm(title: string, description: string, price: number) {
+  submitForm(title: string, description: string, price: number, category: string) {
     this.addingSale = false;
     let newSale: Sale = new Sale(title,description,price,category);
     this.sales.push(newSale);
@@ -34,7 +34,7 @@ export class SalesComponent implements OnInit {
 
   filterSales(category) {
     this.filteredSales = [];
-    this.saleFilter = true;
+    this.salesFilter = true;
     for (let i = 0; i < this.sales.length; i++) {
       if(this.sales[i].category === category) {
         this.filteredSales.push(this.sales[i]);
