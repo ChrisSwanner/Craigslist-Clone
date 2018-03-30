@@ -13,7 +13,7 @@ import { AppComponent } from '../app.component';
 })
 export class SalesComponent implements OnInit {
 
-
+  sales: FirebaseListObservable<any[]>;
   filteredSales: Sale[] = [];
 
   // currentRoute: string = this.router.url;
@@ -26,7 +26,7 @@ export class SalesComponent implements OnInit {
   }
 
   constructor(private router: Router, private saleService: SaleService) { }
-  sales: FirebaseListObservable<any[]>;
+
 
   ngOnInit() {
     this.saleService.getSales().subscribe(dataLastEmittedFromObserver => {
