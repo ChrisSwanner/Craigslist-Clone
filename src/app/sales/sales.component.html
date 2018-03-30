@@ -76,18 +76,8 @@
 <div *ngIf="salesFilter">
   <ul>
     <li id="saleList" *ngFor="let sale of filteredSales">
-    {{sale.title}}
-    <br>
-    {{sale.description}}
-    <br>
-    ${{sale.price}}
-    <form>
-      <label>Subject</label>
-      <input>
-      <label>Message</label>
-      <input>
-      <button>Email Seller</button>
-    </form></li>
+    <h1 (click)="goToDetailPage(sale)">{{sale.title}}</h1>
+    </li>
   </ul>
 
 </div>

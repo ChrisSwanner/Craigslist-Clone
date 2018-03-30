@@ -6,13 +6,15 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SalesComponent } from './sales/sales.component';
+import { AddSaleComponent } from './add-sale/add-sale.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    SalesComponent
+    SalesComponent,
+    AddSaleComponent
   ],
   imports: [
     BrowserModule,
