@@ -3,10 +3,17 @@
     <br>
     <ul>
       <li id="saleList" *ngFor="let currentSale of sales">
-        <h2>{{currentSale.title}}</h2>
+        <h1>{{currentSale.title}}</h1>
         <p>{{currentSale.description}}</p>
         <p>{{currentSale.price}}</p>
         <p>{{currentSale.category}}</p>
+        <form>
+          <label>Subject</label>
+          <input>
+          <label>Message</label>
+          <input>
+          <button>Email Seller</button>
+        </form>
       </li>
     </ul>
   </div>
