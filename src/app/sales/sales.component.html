@@ -1,3 +1,39 @@
-<p>
-  sales works!
-</p>
+<div class="card">
+  <div class="card-body">
+    <br>
+    <ul>
+      <li id="saleList" *ngFor="let currentSale of sales">
+        <h2>{{currentSale.title}}</h2>
+        <p>{{currentSale.description}}</p>
+        <p>{{currentSale.price}}</p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div *ngIf="addingSale">
+  <div class="card">
+    <div class="card-title">
+      <h1>Add New Sale</h1>
+    </div>
+    <div class="card-body">
+      <div>
+        <label>Sale Title</label>
+        <br>
+        <input #newTitle>
+      </div>
+
+      <div>
+        <label>Sale Description</label>
+        <br>
+        <input #newDescription>
+      </div>
+
+      <div>
+        <label>Sale Price</label>
+        <br>
+        <input #newPrice>
+      </div>
+    </div>
+  </div>
+</div>
