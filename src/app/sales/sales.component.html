@@ -31,6 +31,12 @@
           <option value="Electronics">Electronics</option>
           <option value="Vehicles">Vehicles</option>
           <option value="Home Items">Home Items</option>
+          <option value="Appliances">Appliances</option>
+          <option value="Jewelry">Jewelry</option>
+          <option value="Cell Phones">Cell Phones</option>
+
+
+
         </select>
 
 
@@ -51,6 +57,9 @@
         <option value="Electronics">Electronics</option>
         <option value="Vehicles">Vehicles</option>
         <option value="Home Items">Home Items</option>
+        <option value="Appliances">Appliances</option>
+        <option value="Jewelry">Jewelry</option>
+        <option value="Cell Phones">Cell Phones</option>
       </select>
     </div>
     <button (click)="filterSales(category)">Filter</button>
@@ -60,7 +69,7 @@
 <div *ngIf="salesFilter">
   <ul>
     <li id="saleList" *ngFor="let sale of filteredSales">
-    <h1>{{sale.title}}</h1>
+    <h1>Listing: {{sale.title}}</h1>
     <hr>
     <h3>{{sale.description}}</h3>
     <hr>
