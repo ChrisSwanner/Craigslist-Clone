@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" *ngIf="filtered">
   <div class="card-body">
     <br>
     <ul>
@@ -7,13 +7,7 @@
         <p>{{currentSale.description}}</p>
         <p>{{currentSale.price}}</p>
         <p>{{currentSale.category}}</p>
-        <form>
-          <label>Subject</label>
-          <input>
-          <label>Message</label>
-          <input>
-          <button>Email Seller</button>
-        </form>
+
       </li>
     </ul>
   </div>
@@ -60,10 +54,9 @@
     </div>
   </div>
 </div>
-<button (click)="filterSales(category)">Filter</button>
 
 
-<div class="card" *ngIf="salesFilter">
+<div class="card">
   <div class="card-title">
     <h2>Filter Sales</h2>
   </div>
@@ -84,8 +77,17 @@
   <ul>
     <li id="saleList" *ngFor="let sale of filteredSales">
     {{sale.title}}
+    <br>
     {{sale.description}}
-    ${{sale.price}}</li>
+    <br>
+    ${{sale.price}}
+    <form>
+      <label>Subject</label>
+      <input>
+      <label>Message</label>
+      <input>
+      <button>Email Seller</button>
+    </form></li>
   </ul>
 
 </div>
