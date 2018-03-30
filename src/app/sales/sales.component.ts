@@ -7,8 +7,11 @@ import { Sale } from '../sale.model';
   styleUrls: ['./sales.component.css']
 })
 export class SalesComponent implements OnInit {
+  sales: Sale[] = [
+    new Sale('Used Bike', 'I have had it for 20 years, its old and rusty', 100)
+  ]
 
-  currentRoute: string = this.router.url;
+  // currentRoute: string = this.router.url;
   public addingSale: boolean = false;
 
   addNewSale() {
@@ -18,6 +21,12 @@ export class SalesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  submitForm(title: string, description: string, price: number) {
+    this.addingSale = false;
+    let newSale: Sale = new Sale(title,description,price);
+    this.sales.push(newSale);
   }
 
 }
