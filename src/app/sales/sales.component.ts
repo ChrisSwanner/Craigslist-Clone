@@ -1,43 +1,53 @@
 import { Component, OnInit } from '@angular/core';
 import { Sale } from '../sale.model';
+import { Router } from '@angular/router';
+import { SaleService } from '../sale.service';
+import { FirebaseListObservable } from 'angularfire2/database';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-sales',
   templateUrl: './sales.component.html',
-  styleUrls: ['./sales.component.css']
+  styleUrls: ['./sales.component.css'],
+  providers: [SaleService]
 })
 export class SalesComponent implements OnInit {
-  sales: Sale[] = [
-    new Sale('Used Bike', 'I have had it for 20 years, its old and rusty', 100, "Electronics")
-  ];
+
 
   filteredSales: Sale[] = [];
 
   // currentRoute: string = this.router.url;
   public addingSale: boolean = false;
   public salesFilter: boolean = false;
+  saleDisplay;
 
   addNewSale() {
     this.addingSale = true;
   }
 
-  constructor() { }
+  constructor(private router: Router, private saleService: SaleService) { }
+  sales: FirebaseListObservable<any[]>;
 
   ngOnInit() {
+    this.saleService.getSales().subscribe(dataLastEmittedFromObserver => {
+      this.saleDisplay = dataLastEmittedFromObserver;
+    })
+    console.log(this.saleDisplay);
+
   }
 
   submitForm(title: string, description: string, price: number, category: string) {
     this.addingSale = false;
     let newSale: Sale = new Sale(title,description,price,category);
-    this.sales.push(newSale);
+    this.saleService.addSale(newSale);
   }
 
   filterSales(category) {
     this.filteredSales = [];
     this.salesFilter = true;
-    for (let i = 0; i < this.sales.length; i++) {
-      if(this.sales[i].category === category) {
-        this.filteredSales.push(this.sales[i]);
+    for (let i = 0; i < this.saleDisplay.length; i++) {
+      if(this.saleDisplay[i].category === category) {
+        this.filteredSales.push(this.saleDisplay[i]);
       }
     }
   }

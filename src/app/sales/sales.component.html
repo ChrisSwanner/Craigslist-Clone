@@ -1,8 +1,8 @@
-<div class="card" *ngIf="filtered">
+<div class="card" >
   <div class="card-body">
     <br>
     <ul>
-      <li id="saleList" *ngFor="let currentSale of sales">
+      <li id="saleList" *ngFor="let currentSale of sales | async">
         <h1>{{currentSale.title}}</h1>
         <p>{{currentSale.description}}</p>
         <p>{{currentSale.price}}</p>

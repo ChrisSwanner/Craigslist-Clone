@@ -1,0 +1,7 @@
+{ "sales": [{
+    "title": " Old Bike",
+    "description": "Just an old bike",
+    "price": 1,
+    "category": "Vehicles"
+  }]
+}

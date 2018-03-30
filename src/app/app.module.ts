@@ -6,20 +6,30 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SalesComponent } from './sales/sales.component';
-import { AddSaleComponent } from './add-sale/add-sale.component';
+import { fireConfig } from './api-keys';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
+
+export const firebaseConfig = {
+  apiKey: fireConfig.apiKey,
+  authDomain: fireConfig.authDomain,
+  databaseURL: fireConfig.databaseURL,
+  storageBucket: fireConfig.storageBucket
+};
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    SalesComponent,
-    AddSaleComponent
+    SalesComponent
   ],
   imports: [
     BrowserModule,
     routing,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
