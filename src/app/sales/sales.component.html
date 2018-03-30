@@ -35,7 +35,47 @@
         <br>
         <input #newPrice>
       </div>
-      <button class="btn btn-dark" (click)="submitForm(newTitle.value, newDescription.value, newPrice.value)">Done</button>
+
+      <div>
+        <label>Sale Category</label>
+        <br>
+        <select #newCategory>
+          <option value="Electronics">Electronics</option>
+          <option value="Vehicles">Vehicles</option>
+          <option value="Home Items">Home Items</option>
+        </select>
+
+
+      </div>
+
+      <button class="btn btn-dark" (click)="submitForm(newTitle.value, newDescription.value, newPrice.value, newCategory.value)">Done</button>
     </div>
   </div>
+</div>
+
+
+<div class="card">
+  <div class="card-title">
+    <h2>Filter Sales</h2>
+  </div>
+  <div class="card-body">
+    <div class="form-group">
+      <label>Select Category</label>
+      <select class="form-control" [(ngModel)]="category">
+        <option value="Electronics">Electronics</option>
+        <option value="Vehicles">Vehicles</option>
+        <option value="Home Items">Home Items</option>
+      </select>
+    </div>
+    <button (click)="filterSales(category)">Filter</button>
+
+  </div>
+</div>
+<div *ngIf="saleFilter">
+  <ul>
+    <li id="saleList" *ngFor="let sale of filteredSales">
+    {{sale.title}}
+    {{sale.description}}
+    ${{sale.price}}</li>
+  </ul>
 </div>
