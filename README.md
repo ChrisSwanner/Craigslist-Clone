@@ -5,6 +5,7 @@
 ## Current Features:
 ### Filter Function for users to be able to choose a category and view sales only in that category.
 ### Add a sale function that allows a user to add a new sale listing for others to view.
+### A save function that saves the listing of a user to firebase
 
 
 ## Future Features
