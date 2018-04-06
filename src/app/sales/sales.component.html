@@ -1,80 +1,56 @@
+<div *ngIf="normal">
+    <div  *ngFor="let currentSale of sales | async"  class="card">
+            <ul>
+                <li>
+                    <h2 class="title"[routerLink]="['/details', currentSale.$key]">{{currentSale.title}}</h2>
+                </li>
+            </ul>
+        </div>
+    </div>
+
 <button class="btn btn-dark" (click)="addNewSale()">Add New Sale</button>
 
 <div *ngIf="addingSale">
-  <div class="card">
-    <div class="card-title">
-      <h1>Add New Sale</h1>
+    <div class="card">
+        <div class="card-title">
+            <h1>Add New Sale</h1>
+        </div>
+        <div class="card-body">
+            <div>
+                <label>Sale Title:</label>
+                <br>
+                <input type="text" #newTitle required>
+            </div>
+            <div>
+                <label>Description:</label>
+                <br>
+                <textarea #newDescription>
+                  </textarea>
+            </div>
+            <div>
+                <label>Price:</label>
+                <br>
+                <input type="number" #newPrice>
+            </div>
+            <div>
+                <label>Category:</label>
+                <br>
+                <select #newCategory>
+                  <option value="Electronics">Electronics</option>
+                  <option value="Vehicles">Vehicles</option>
+                  <option value="Home Items">Home Items</option>
+                  <option value="Appliances">Appliances</option>
+                  <option value="Jewelry">Jewelry</option>
+                  <option value="Cell Phones">Cell Phones</option>
+                </select>
+            </div>
+            <br>
+            <button class="btn btn-dark" (click)="submitForm(newTitle.value, newDescription.value, newPrice.value, newCategory.value);">Add</button>
+        </div>
     </div>
-    <div class="card-body">
-      <div>
-        <label>Sale Title</label>
-        <br>
-        <input #newTitle>
-      </div>
-
-      <div>
-        <label>Sale Description</label>
-        <br>
-        <input #newDescription>
-      </div>
-
-      <div>
-        <label>Sale Price</label>
-        <br>
-        <input #newPrice>
-      </div>
-
-      <div>
-        <label>Sale Category</label>
-        <br>
-        <select #newCategory>
-          <option value="Electronics">Electronics</option>
-          <option value="Vehicles">Vehicles</option>
-          <option value="Home Items">Home Items</option>
-          <option value="Appliances">Appliances</option>
-          <option value="Jewelry">Jewelry</option>
-          <option value="Cell Phones">Cell Phones</option>
-
-
-
-        </select>
-
-
-      </div>
-
-      <button class="btn btn-dark" (click)="submitForm(newTitle.value, newDescription.value, newPrice.value, newCategory.value)">Done</button>
-    </div>
-  </div>
 </div>
-
-
-
-<div class="card">
-  <div class="card-body">
-    <div class="form-group">
-      <label>Select Category</label>
-      <select class="form-control" [(ngModel)]="category">
-        <option value="Electronics">Electronics</option>
-        <option value="Vehicles">Vehicles</option>
-        <option value="Home Items">Home Items</option>
-        <option value="Appliances">Appliances</option>
-        <option value="Jewelry">Jewelry</option>
-        <option value="Cell Phones">Cell Phones</option>
-      </select>
-    </div>
-    <button (click)="filterSales(category)">Filter</button>
-
-  </div>
-</div>
-<div *ngIf="salesFilter">
-  <ul>
-    <li id="saleList" *ngFor="let sale of filteredSales">
-    <h1>Listing: {{sale.title}}</h1>
-    <hr>
-    <h3>{{sale.description}}</h3>
-    <hr>
-    <h3>${{sale.price}}</h3>
-    </li>
-  </ul>
-
-</div>
+           <ul>
+                <li id="saleList" *ngFor="let sale of filteredSales">
+                    <h2 [routerLink]="['/details', sale.$key]" class="title">{{sale.title}}</h2>
+                  </li>
+            </ul>

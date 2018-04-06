@@ -20,9 +20,18 @@ export class SalesComponent implements OnInit {
   public addingSale: boolean = false;
   public salesFilter: boolean = false;
   saleDisplay;
+  public normal: boolean = true;
+  public isFiltering: Boolean = false;
+
 
   addNewSale() {
     this.addingSale = true;
+    this.normal = false;
+    this.isFiltering = false;
+  }
+
+  submitRedirect() {
+    this.router.navigate(['/']);
   }
 
   constructor(private router: Router, private saleService: SaleService) { }
@@ -40,6 +49,7 @@ export class SalesComponent implements OnInit {
     this.addingSale = false;
     let newSale: Sale = new Sale(title,description,price,category);
     this.saleService.addSale(newSale);
+    this.submitRedirect();
   }
 
   filterSales(category) {
@@ -53,3 +63,5 @@ export class SalesComponent implements OnInit {
   }
 
 }
+
+
