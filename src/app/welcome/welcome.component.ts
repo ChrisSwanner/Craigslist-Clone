@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SaleService } from '../sale.service'; 
 import { SalesComponent } from '../sales/sales.component';
 
+
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
