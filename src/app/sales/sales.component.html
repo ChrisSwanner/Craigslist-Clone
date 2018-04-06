@@ -1,10 +1,18 @@
 <div *ngIf="normal">
-    <div  *ngFor="let currentSale of sales | async"  class="card">
-            <ul>
-                <li>
-                    <h2 class="title"[routerLink]="['/details', currentSale.$key]">{{currentSale.title}}</h2>
-                </li>
-            </ul>
+    <div  *ngFor="let currentSale of sales | async"  class="row">
+        <div class=""col s12 m6>
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">[routerLink]="['/details', currentSale.$key]">{{currentSale.title}}</span>
+                    <ul>
+                            <li>
+                                <h2 class="title"[routerLink]="['/details', currentSale.$key]">{{currentSale.title}}</h2>
+                            </li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+            
         </div>
     </div>
 

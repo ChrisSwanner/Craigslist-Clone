@@ -1,0 +1,6 @@
+#admin, #logout {
+    color: rgba(163, 255, 247, 0.722)!important;
+}
+#admin:hover, #logout:hover {
+    color: black!important;
+}
