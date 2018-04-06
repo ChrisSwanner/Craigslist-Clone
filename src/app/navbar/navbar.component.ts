@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { AuthGuardService } from '../auth-guard.service';
-import { ProjectDetailComponent } from '../sale-detail/sale-detail.component';
+import { SaleDetailComponent } from '../sale-detail/sale-detail.component';
 import { Sale } from '../sale.model';
 import { SalesComponent } from '../sales/sales.component';
 import { SaleService } from '../sale.service';
@@ -10,7 +10,7 @@ import { SaleService } from '../sale.service';
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
-  providers: [AuthService, AuthGuardService, AllProjectsComponent, ProjectService]
+  providers: [AuthService, AuthGuardService, SalesComponent, SaleService]
 })
 export class NavbarComponent implements OnInit{
   user;
@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit{
   private userName: String;
   
 
-  constructor(public authService: AuthService, private allProjectsComponent: AllProjectsComponent, private saleService: ProjectService) {
+  constructor(public authService: AuthService, private salesComponent: SalesComponent, private saleService: SaleService) {
     this.authService.user.subscribe(user => {
       if (user == null) {
         this.LoggedOut = true;
@@ -36,17 +36,17 @@ export class NavbarComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.saleService.getProjects().subscribe(dataLastEmittedFromObserver => {
+    this.saleService.getSales().subscribe(dataLastEmittedFromObserver => {
       this.saleDisplay = dataLastEmittedFromObserver;
 
   })
-  this.allProjectsComponent.sales = this.saleService.getProjects();
+  this.salesComponent.sales = this.saleService.getSales();
 }
 
 
   
-  private saleDisplay = this.allProjectsComponent.saleDisplay;
-  public productArray;
+  private saleDisplay = this.salesComponent.saleDisplay;
+  public saleArray;
 
   login() {
     this.authService.login();
@@ -62,38 +62,38 @@ export class NavbarComponent implements OnInit{
     this.LoggedIn = false;
   }
 
-  charityFilter() {
+  appliancesFilter() {
    
-    this.productArray = [];
+    this.saleArray = [];
 
     for (let i = 0; i < this.saleDisplay.length; i++) {
       if (this.saleDisplay[i].saleType === "charity") {
-        this.productArray.push(this.saleDisplay[i]);
+        this.saleArray.push(this.saleDisplay[i]);
       } else {
         return null;
       }
     }
   }
 
-  ideaFilter() {
+  electronicsFilter() {
     
    
-    this.productArray = [];
+    this.saleArray = [];
 
     for (let i = 0; i < this.saleDisplay.length; i++) {
       if (this.saleDisplay[i].saleType === "idea") {
-        this.productArray.push(this.saleDisplay[i]);
+        this.saleArray.push(this.saleDisplay[i]);
       } else {
         return null;
     }
   }
 }
 
-  productFilter() {
-    this.productArray = [];
+  vehicleFilter() {
+    this.saleArray = [];
     for (let i = 0; i < this.saleDisplay.length; i++) {
       if (this.saleDisplay[i].saleType != "idea" && this.saleDisplay[i].saleType != "charity") {
-        this.productArray.push(this.saleDisplay[i]);
+        this.saleArray.push(this.saleDisplay[i]);
       } else {
         console.log("null")
         

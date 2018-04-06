@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2/database';
+import { NavbarComponent } from '../app/navbar/navbar.component'
 
 
 @Component({
