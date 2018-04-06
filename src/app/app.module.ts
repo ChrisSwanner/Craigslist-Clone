@@ -24,6 +24,8 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
 import { HomeItemsComponent } from './home-items/home-items.component';
 import { JewelryComponent } from './jewelry/jewelry.component';
 import { PhonesComponent } from './phones/phones.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MzButtonModule, MzInputModule } from 'ng2-materialize';
 
 export const firebaseMasterConfig = {
   apiKey: fireConfig.apiKey,
@@ -57,7 +59,10 @@ export const firebaseMasterConfig = {
     AngularFireModule.initializeApp(firebaseMasterConfig),
     AngularFireAuthModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule,
+    MzButtonModule,
+    MzInputModule
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
