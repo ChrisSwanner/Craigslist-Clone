@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="navbar-header">
+    <a class="navbar-brand logo" href="/">{{ title }}</a>
+  </div>
+  <div  class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li ><a class="navLink" routerLink="/">Home</a></li>
+      <li  ><a class="navLink" routerLink="/sales">Projects</a></li>
+      <li  ><a class="navLink" (click)="electronicsFilter()" routerLink="/electronics">Charities</a></li>
+      <li  ><a class="navLink" (click)="vehicleFilter()" routerLink="/vehicles">Ideas</a></li>
+      <li  ><a class="navLink" (click)="appliancesFilter()" routerLink="/appliances">Products</a></li>
+      <div *ngIf="LoggedOut">
+        <li>
+          <a class="navLinkLog" (click)="login()">Login</a>
+        </li>
+      </div>
+    </ul>
+  </div>
+</nav>
+<div *ngIf="LoggedIn">
+<footer>
+    <a  id="logOut" (click)="logout()">Logout</a>
+    <a routerLink="/admin">Admin</a>
+</footer>
+</div>

@@ -9,6 +9,7 @@ import { SalesComponent } from './sales/sales.component';
 import { fireConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 export const firebaseConfig = {
@@ -22,7 +23,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     WelcomeComponent,
-    SalesComponent
+    SalesComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
