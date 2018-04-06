@@ -4,6 +4,8 @@
       <p>About: {{saleDisplay?.description}}</p><br>
       <h3>Category: {{saleDisplay?.category}}</h3><br>
       <h3>Asking Price: {{saleDisplay?.price}}</h3>
+      <!-- Js mailto function -->
+      <button class="btn">Mail Seller</button>
   <div *ngIf="admin"><button (click)="edit()">Edit Project</button></div>
   <div *ngIf="editing">
       <div *ngIf="admin">
