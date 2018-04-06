@@ -1,0 +1,9 @@
+<ul>
+    <li *ngFor="let sale of filteredSales" class="card">
+        <div class="card-body"><h2 [routerLink]="['/details', sale.$key]" class="title">{{sale.title}}</h2></div>
+      </li>
+      
+  </ul>
+  <div *ngIf="empty">
+    <h1>Nothing in this category.</h1>
+  </div>

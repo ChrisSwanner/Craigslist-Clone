@@ -10,7 +10,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { ElectronicsComponent } from './electronics/electronics.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { AppliancesComponent } from './appliances/appliances.component';
-
+import { JewelryComponent } from '../app/jewelry/jewelry.component'
 export const appRoutes: Routes = [
     {
         path: '',
@@ -41,6 +41,10 @@ export const appRoutes: Routes = [
         path: 'vehicles',
         component: VehiclesComponent
     },
+    {
+        path: 'jewelry',
+        component: JewelryComponent
+    }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

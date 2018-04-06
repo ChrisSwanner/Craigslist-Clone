@@ -21,6 +21,9 @@ import { AuthService } from './auth.service';
 import { ElectronicsComponent } from './electronics/electronics.component';
 import { AppliancesComponent } from './appliances/appliances.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
+import { HomeItemsComponent } from './home-items/home-items.component';
+import { JewelryComponent } from './jewelry/jewelry.component';
+import { PhonesComponent } from './phones/phones.component';
 
 export const firebaseMasterConfig = {
   apiKey: fireConfig.apiKey,
@@ -39,7 +42,10 @@ export const firebaseMasterConfig = {
     AdminComponent,
     ElectronicsComponent,
     AppliancesComponent,
-    VehiclesComponent
+    VehiclesComponent,
+    HomeItemsComponent,
+    JewelryComponent,
+    PhonesComponent
     
   ],
   imports: [

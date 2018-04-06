@@ -62,46 +62,4 @@ export class NavbarComponent implements OnInit{
     this.admin = false;
     this.LoggedIn = false;
   }
-
-  appliancesFilter() {
-   
-    this.saleArray = [];
-
-    for (let i = 0; i < this.saleDisplay.length; i++) {
-      if (this.saleDisplay[i].category === "appliances") {
-        this.saleArray.push(this.saleDisplay[i]);
-      } else {
-        return null;
-      }
-    }
-  }
-
-  electronicsFilter() {
-    
-   
-    this.saleArray = [];
-
-    for (let i = 0; i < this.saleDisplay.length; i++) {
-      if (this.saleDisplay[i].saleType === "idea") {
-        this.saleArray.push(this.saleDisplay[i]);
-      } else {
-        return null;
-    }
-  }
-}
-
-  vehicleFilter() {
-    this.saleArray = [];
-    for (let i = 0; i < this.saleDisplay.length; i++) {
-      if (this.saleDisplay[i].category != "appliances" && this.saleDisplay[i].category != "electronics") {
-        this.saleArray.push(this.saleDisplay[i]);
-      } else {
-        this.empty = true;
-        
-        
-    }
-  }
-  
-}
-
 }

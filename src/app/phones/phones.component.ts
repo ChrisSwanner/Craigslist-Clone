@@ -6,12 +6,12 @@ import { FirebaseListObservable } from 'angularfire2/database';
 import { Sale } from '../sale.model';
 
 @Component({
-  selector: 'app-electronics',
-  templateUrl: './electronics.component.html',
-  styleUrls: ['./electronics.component.css'],
+  selector: 'app-phones',
+  templateUrl: './phones.component.html',
+  styleUrls: ['./phones.component.css'],
   providers: [NavbarComponent, SalesComponent, SaleService]
 })
-export class ElectronicsComponent implements OnInit {
+export class PhonesComponent implements OnInit {
 
   constructor(private navBar: NavbarComponent, private salesComponent: SalesComponent, private saleService: SaleService) { }
 
@@ -24,7 +24,7 @@ export class ElectronicsComponent implements OnInit {
       this.saleService.getSales().subscribe(dataLastEmittedFromObserver => {
         this.saleDisplay = dataLastEmittedFromObserver;
         for (let i = 0; i < this.saleDisplay.length; i++) {
-          if (this.saleDisplay[i].category != "Vehicles" && this.saleDisplay[i].category != "Appliances" &&  this.saleDisplay[i].category != "Home Items" &&  this.saleDisplay[i].category != "Jewelry" &&  this.saleDisplay[i].category != "Cell Phones" ) {
+          if (this.saleDisplay[i].category != "Vehicles" && this.saleDisplay[i].category != "Appliances" &&  this.saleDisplay[i].category != "Home Items" &&  this.saleDisplay[i].category != "Jewelry" &&  this.saleDisplay[i].category != "Electroncis" ) {
             this.filteredSales.push(this.saleDisplay[i]);
             console.log(this.filteredSales)
           } else  {

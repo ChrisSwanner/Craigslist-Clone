@@ -6,9 +6,10 @@
     <ul class="nav navbar-nav">
       <li ><a class="navLink" routerLink="/">Home</a></li>
       <li  ><a class="navLink" routerLink="/sales">Sales</a></li>
-      <li  ><a class="navLink" (click)="electronicsFilter()" routerLink="/electronics">Electronics</a></li>
-      <li  ><a class="navLink" (click)="appliancesFilter()" routerLink="/appliances">Appliances</a></li>
-      <li  ><a class="navLink" (click)="vehiclesFilter()" routerLink="/vehicles">Vehicles</a></li>
+      <li  ><a class="navLink" routerLink="/electronics">Electronics</a></li>
+      <li  ><a class="navLink" routerLink="/appliances">Appliances</a></li>
+      <li  ><a class="navLink" routerLink="/jewelry">Jewelry</a></li>
+      <li  ><a class="navLink" routerLink="/vehicles">Vehicles</a></li>
       <div *ngIf="LoggedOut">
         <li>
           <a class="navLinkLog" (click)="login()">Login</a>
