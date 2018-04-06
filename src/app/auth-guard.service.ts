@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
-import { AuthService } from "./auth.service";
+import { AuthService } from '../app/auth.service'
 import { auth } from 'firebase/app';
 
 @Injectable()

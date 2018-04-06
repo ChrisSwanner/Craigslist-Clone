@@ -1,2 +1,11 @@
-<h1>Craigslist</h1>
-<a href="sales">Post to classifieds</a>
+<div class="card">
+    <div class="card-title">
+            <h1>ChrisList</h1>
+    </div>
+    <div class="card-body">
+        <h3>Most Recent Sales</h3>
+        <div *ngFor="let sale of sales; let i=index">
+            <div *ngIf="i<3"><h1>{{sale.category}}: {{sale.title}}</h1></div>
+        </div>
+    </div>
+</div>
