@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ModuleWithProviders }  from '@angular/core';
-
+import { HomeItemsComponent} from './home-items/home-items.component'
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SaleDetailComponent } from './sale-detail/sale-detail.component';
 import { SalesComponent } from './sales/sales.component';
@@ -44,6 +44,10 @@ export const appRoutes: Routes = [
     {
         path: 'jewelry',
         component: JewelryComponent
+    },
+    {
+        path: "homeItems",
+        component: HomeItemsComponent
     }
 ];
 
