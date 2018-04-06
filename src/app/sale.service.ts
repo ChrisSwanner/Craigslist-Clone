@@ -20,4 +20,23 @@ export class SaleService {
   addSale(newSale: Sale) {
   this.sales.push(newSale);
   }
+
+  getSaleById(projectId: string) {
+    return this.database.object('sales/' + projectId);
+}
+
+  deleteSale(localSaleToDelete) {
+    let saleInFirebase = this.getSaleById(localSaleToDelete.$key);
+    saleInFirebase.remove();
+    this.getSaleById(localSaleToDelete.price).remove();
+  }
+
+  updateSale(localSaleToUpdate) {
+    let projectEntryInFirebase = this.getSaleById(localSaleToUpdate.$key);
+    projectEntryInFirebase.update({title: localSaleToUpdate.title,
+    description: localSaleToUpdate.description,
+    price: localSaleToUpdate.price,
+    category: localSaleToUpdate.category
+   })
+  }
 }

@@ -1,3 +1,52 @@
-<p>
-  sale-detail works!
-</p>
+<div class="card">
+  <div class="card-body">
+      <h1>Sale: {{saleDisplay?.title}}</h1><br>
+      <p>About: {{saleDisplay?.description}}</p><br>
+      <h3>Category: {{saleDisplay?.category}}</h3><br>
+      <h3>Asking Price: {{saleDisplay?.price}}</h3>
+  <div *ngIf="admin"><button (click)="edit()">Edit Project</button></div>
+  <div *ngIf="editing">
+      <div *ngIf="admin">
+          <div class="card">
+              <div class="card-title">
+                  <h1>Edit Project</h1>
+              </div>
+              <div class="card-body">
+                  <div>
+                      <label>Sale Title:</label>
+                      <br>
+                      <input type="text" [(ngModel)]="saleDisplay.title">
+                  </div>
+                  <div>
+                  <div>
+                      <label>Description:</label>
+                      <br>
+                      <input [(ngModel)]="saleDisplay.description">
+                  </div>
+                  <div>
+                      <label>Project Category:</label>
+                      <br>
+                      <select [(ngModel)]="saleDisplay.category">
+                          <option value="Electronics">Electronics</option>
+                          <option value="Vehicles">Vehicles</option>
+                          <option value="Home Items">Home Items</option>
+                          <option value="Appliances">Appliances</option>
+                          <option value="Jewelry">Jewelry</option>
+                          <option value="Cell Phones">Cell Phones</option>
+                      </select>
+                  </div>
+                  <div>
+                      <label>Price:</label>
+                      <br>
+                      <input type="number" [(ngModel)]="saleDisplay.price">
+                  </div>
+                  <br>
+                </div>
+          <button (click)="delete(saleDisplay)">Delete</button><br><br>
+          <button (click)="update(saleDisplay)">Update</button><br><br>
+      </div>
+  </div>
+  
+  
+
+</div>
