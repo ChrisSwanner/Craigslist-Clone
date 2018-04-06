@@ -47,6 +47,7 @@ export class NavbarComponent implements OnInit{
   
   private saleDisplay = this.salesComponent.saleDisplay;
   public saleArray;
+  public empty: boolean;
 
   login() {
     this.authService.login();
@@ -67,7 +68,7 @@ export class NavbarComponent implements OnInit{
     this.saleArray = [];
 
     for (let i = 0; i < this.saleDisplay.length; i++) {
-      if (this.saleDisplay[i].saleType === "charity") {
+      if (this.saleDisplay[i].category === "appliances") {
         this.saleArray.push(this.saleDisplay[i]);
       } else {
         return null;
@@ -92,10 +93,11 @@ export class NavbarComponent implements OnInit{
   vehicleFilter() {
     this.saleArray = [];
     for (let i = 0; i < this.saleDisplay.length; i++) {
-      if (this.saleDisplay[i].saleType != "idea" && this.saleDisplay[i].saleType != "charity") {
+      if (this.saleDisplay[i].category != "appliances" && this.saleDisplay[i].category != "electronics") {
         this.saleArray.push(this.saleDisplay[i]);
       } else {
-        console.log("null")
+        this.empty = true;
+        
         
     }
   }
